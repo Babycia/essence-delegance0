@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>À propos — Élégance Parfumerie</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =========================
+           PAGE À PROPOS
+        ========================= */
+
+        .about-page {
+            background: #fdf8f5;
+            color: #29221f;
+        }
+
+        /* HERO */
+
+        .about-hero {
+            min-height: 62vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 30px 80px;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(224, 181, 177, 0.25), transparent 35%),
+                radial-gradient(circle at 80% 70%, rgba(198, 166, 116, 0.14), transparent 35%),
+                #f8ebe7;
+        }
+
+        .about-hero-content {
+            max-width: 850px;
+        }
+
+        .about-eyebrow {
+            display: inline-block;
+            margin-bottom: 18px;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #a7865d;
+            font-weight: 600;
+        }
+
+        .about-hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(42px, 7vw, 78px);
+            font-weight: 400;
+            line-height: 1.05;
+            margin: 0 0 25px;
+            color: #29221f;
+        }
+
+        .about-hero h1 span {
+            color: #a7865d;
+            font-style: italic;
+        }
+
+        .about-hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 17px;
+            line-height: 1.9;
+            color: #6d605b;
+        }
+
+        /* SECTIONS */
+
+        .about-section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 90px 30px;
+        }
+
+        .about-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .about-heading small {
+            display: block;
+            margin-bottom: 12px;
+            color: #a7865d;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .about-heading h2 {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 42px;
+            font-weight: 400;
+            color: #29221f;
+        }
+
+        .about-heading p {
+            max-width: 700px;
+            margin: 18px auto 0;
+            color: #766b66;
+            line-height: 1.8;
+        }
+
+        /* NOTRE PROJET */
+
+        .about-story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .story-card {
+            min-height: 430px;
+            border-radius: 2px;
+            background:
+                radial-gradient(circle at 50% 30%, rgba(255,255,255,0.85), transparent 28%),
+                linear-gradient(145deg, #ead3ce, #f7e8e3 55%, #ddc1bb);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 25px 60px rgba(65, 43, 37, 0.12);
+        }
+
+        .story-bottle {
+            width: 125px;
+            height: 240px;
+            border-radius: 15px 15px 24px 24px;
+            background: linear-gradient(90deg, #8f6b4d, #d6b483 45%, #805b3e);
+            position: relative;
+            box-shadow: 0 30px 35px rgba(60, 39, 25, 0.2);
+        }
+
+        .story-bottle::before {
+            content: "";
+            position: absolute;
+            top: -55px;
+            left: 38px;
+            width: 49px;
+            height: 60px;
+            border-radius: 6px 6px 3px 3px;
+            background: linear-gradient(90deg, #1e1917, #554a45, #181514);
+        }
+
+        .story-bottle::after {
+            content: "ÉLÉGANCE";
+            position: absolute;
+            left: 17px;
+            right: 17px;
+            top: 105px;
+            padding: 13px 5px;
+            background: rgba(250, 242, 232, 0.94);
+            color: #302722;
+            text-align: center;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        .story-text h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 35px;
+            font-weight: 400;
+            margin: 0 0 20px;
+        }
+
+        .story-text p {
+            color: #6d625d;
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        /* PARCOURS */
+
+        .formation-section {
+            background: #29221f;
+            color: white;
+        }
+
+        .formation-section .about-heading h2 {
+            color: white;
+        }
+
+        .formation-section .about-heading p {
+            color: #d8ceca;
+        }
+
+        .formation-content {
+            max-width: 950px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .formation-main {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 32px;
+            line-height: 1.4;
+            color: #e5c18c;
+            margin-bottom: 25px;
+        }
+
+        .formation-description {
+            max-width: 800px;
+            margin: auto;
+            color: #d9cfca;
+            line-height: 1.9;
+            font-size: 16px;
+        }
+
+        .formation-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 35px;
+        }
+
+        .formation-tag {
+            border: 1px solid rgba(218, 187, 137, 0.5);
+            padding: 11px 18px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #ead4b1;
+        }
+
+        /* CE QUE NOUS APPRENONS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 35px 28px;
+            background: white;
+            border: 1px solid #eee1dc;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(62, 40, 34, 0.09);
+        }
+
+        .skill-number {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 30px;
+            color: #b29369;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 22px;
+            font-weight: 400;
+            margin: 0 0 12px;
+        }
+
+        .skill-card p {
+            color: #756b66;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* ÉQUIPE */
+
+        .team-section {
+            background: #f3e5e1;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .team-card {
+            background: #fffaf8;
+            padding: 35px 20px;
+            text-align: center;
+            border: 1px solid rgba(167, 134, 93, 0.2);
+        }
+
+        .team-initial {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #29221f;
+            color: #e5c18c;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 24px;
+        }
+
+        .team-card h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.4;
+            margin: 0 0 10px;
+        }
+
+        .team-card p {
+            margin: 0;
+            color: #8a7972;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* ISPM */
+
+        .ispm-section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 90px 30px;
+            text-align: center;
+        }
+
+        .ispm-box {
+            padding: 55px 45px;
+            background: #fff;
+            border: 1px solid #eadbd5;
+            box-shadow: 0 20px 50px rgba(55, 35, 30, 0.07);
+        }
+
+        .ispm-logo-text {
+            font-size: 13px;
+            letter-spacing: 4px;
+            color: #a7865d;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .ispm-box h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin: 0 0 20px;
+        }
+
+        .ispm-box p {
+            color: #6d625d;
+            line-height: 1.9;
+            max-width: 780px;
+            margin: 0 auto 18px;
+        }
+
+        .ispm-location {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #a7865d;
+            letter-spacing: 1px;
+        }
+
+        /* CTA */
+
+        .about-cta {
+            padding: 90px 30px;
+            text-align: center;
+            background:
+                linear-gradient(rgba(45, 32, 28, 0.92), rgba(45, 32, 28, 0.92)),
+                #29221f;
+            color: white;
+        }
+
+        .about-cta h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 44px;
+            font-weight: 400;
+            margin: 0 0 18px;
+        }
+
+        .about-cta p {
+            color: #d7cbc6;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .about-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #e5c18c;
+            color: #29221f;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .about-btn:hover {
+            background: white;
+        }
+
+        /* LOGO ISPM DANS LA NAVIGATION */
+
+        .ispm-logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .navbar .logo a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+
+            .about-story {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .story-card {
+                min-height: 350px;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .about-section,
+            .ispm-section {
+                padding: 65px 20px;
+            }
+
+            .about-hero {
+                padding: 80px 20px 65px;
+            }
+
+            .about-heading h2 {
+                font-size: 34px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ispm-box {
+                padding: 35px 20px;
+            }
+
+            .about-cta h2 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body class="about-page">
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo_ispm.PNG" alt="Logo ISPM" class="ispm-logo">
+                Élégance
+            </a>
+        </div>
+
+        <nav class="navigation">
+            <a href="index.html">Accueil</a>
+            <a href="parfum.html">Nos parfums</a>
+            <a href="createur.html">Crée ton parfum</a>
+            <a href="apropos.html" class="active">À propos</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <a href="panier.html" class="cart-link">
+            Panier <span class="cart-count" id="cart-count">0</span>
+        </a>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="about-hero">
+
+        <div class="about-hero-content">
+
+            <span class="about-eyebrow">
+                Notre histoire
+            </span>
+
+            <h1>
+                L'art de créer<br>
+                <span>des fragrances</span>
+            </h1>
+
+            <p>
+                Élégance Parfumerie est un projet universitaire réalisé par
+                quatre étudiants passionnés par la chimie, la créativité et
+                l'innovation.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         NOTRE PROJET
+    ========================== -->
+
+    <section class="about-section">
+
+        <div class="about-heading">
+
+            <small>Notre projet</small>
+
+            <h2>De la chimie au parfum</h2>
+
+            <p>
+                Un projet qui nous permet de transformer nos connaissances
+                scientifiques en une création concrète, originale et accessible.
+            </p>
+
+        </div>
+
+
+        <div class="about-story">
+
+            <div class="story-card">
+                <div class="story-bottle"></div>
+            </div>
+
+
+            <div class="story-text">
+
+                <h3>Une rencontre entre science et créativité</h3>
+
+                <p>
+                    La création de parfums représente pour nous une manière
+                    concrète de mettre en pratique notre formation en génie
+                    industriel et nos connaissances dans le domaine de la chimie.
+                </p>
+
+                <p>
+                    À travers Élégance Parfumerie, nous avons imaginé une
+                    collection de fragrances aux caractères différents, tout en
+                    développant une expérience permettant à chacun de découvrir
+                    les parfums et de créer une fragrance personnalisée.
+                </p>
+
+                <p>
+                    Ce projet associe ainsi formulation, organisation,
+                    créativité, présentation commerciale et développement
+                    numérique.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         NOTRE FORMATION
+    ========================== -->
+
+    <section class="formation-section">
+
+        <div class="about-section">
+
+            <div class="about-heading">
+
+                <small>Notre parcours</small>
+
+                <h2>Génie Industriel</h2>
+
+                <p>
+                    Une formation scientifique et technologique qui nous prépare
+                    à comprendre et à participer aux différents processus
+                    industriels.
+                </p>
+
+            </div>
+
+
+            <div class="formation-content">
+
+                <div class="formation-main">
+                    3ème année — Industries Chimiques,
+                    Minières et Pétrolières
+                </div>
+
+                <p class="formation-description">
+                    Nous sommes actuellement en troisième année de la mention
+                    Génie Industriel, parcours Industries Chimiques, Minières et
+                    Pétrolières. Notre formation nous permet de développer des
+                    connaissances dans les domaines de la chimie industrielle,
+                    des procédés, des ressources minières et du secteur
+                    pétrolier, tout en développant une approche pratique et
+                    orientée vers le monde industriel.
+                </p>
+
+                <div class="formation-tags">
+
+                    <span class="formation-tag">
+                        Chimie industrielle
+                    </span>
+
+                    <span class="formation-tag">
+                        Procédés industriels
+                    </span>
+
+                    <span class="formation-tag">
+                        Industries minières
+                    </span>
+
+                    <span class="formation-tag">
+                        Industrie pétrolière
+                    </span>
+
+                    <span class="formation-tag">
+                        Innovation
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         NOS COMPÉTENCES
+    ========================== -->
+
+    <section class="about-section">
+
+        <div class="about-heading">
+
+            <small>Notre savoir-faire</small>
+
+            <h2>Ce que notre parcours nous apporte</h2>
+
+            <p>
+                Notre formation nous permet de développer une approche à la fois
+                scientifique, technique et pratique.
+            </p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <div class="skill-number">01</div>
+
+                <h3>Science & Chimie</h3>
+
+                <p>
+                    Comprendre les propriétés des matières, les phénomènes
+                    chimiques et leur application dans différents procédés.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-number">02</div>
+
+                <h3>Procédés industriels</h3>
+
+                <p>
+                    Analyser et comprendre les étapes de transformation,
+                    de production et de contrôle dans un environnement industriel.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-number">03</div>
+
+                <h3>Innovation & projet</h3>
+
+                <p>
+                    Transformer une idée en réalisation concrète grâce au
+                    travail en équipe, à la créativité et à l'expérimentation.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-number">04</div>
+
+                <h3>Rigueur</h3>
+
+                <p>
+                    Appliquer une démarche méthodique et scientifique dans
+                    l'analyse, la réalisation et l'amélioration d'un projet.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-number">05</div>
+
+                <h3>Travail en équipe</h3>
+
+                <p>
+                    Collaborer, répartir les tâches et mettre en commun nos
+                    compétences pour atteindre un objectif collectif.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-number">06</div>
+
+                <h3>Esprit industriel</h3>
+
+                <p>
+                    Développer une vision orientée vers la qualité,
+                    l'organisation, l'efficacité et la recherche de solutions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         NOTRE ÉQUIPE
+    ========================== -->
+
+    <section class="team-section">
+
+        <div class="about-section">
+
+            <div class="about-heading">
+
+                <small>L'équipe</small>
+
+                <h2>Les créateurs du projet</h2>
+
+                <p>
+                    Quatre étudiants, un même parcours et une volonté commune
+                    de transformer nos connaissances en une réalisation concrète.
+                </p>
+
+            </div>
+
+
+            <div class="team-grid">
+
+                <div class="team-card">
+
+                    <div class="team-initial">
+                        MR
+                    </div>
+
+                    <h3>
+                        MAMILALAINA Rolie
+                    </h3>
+
+                    <p>
+                        Génie Industriel — ICMP<br>
+                        3ème année
+                    </p>
+
+                </div>
+
+
+                <div class="team-card">
+
+                    <div class="team-initial">
+                        TS
+                    </div>
+
+                    <h3>
+                        TSIAROVA Stephy Princia
+                    </h3>
+
+                    <p>
+                        Génie Industriel — ICMP<br>
+                        3ème année
+                    </p>
+
+                </div>
+
+
+                <div class="team-card">
+
+                    <div class="team-initial">
+                        RF
+                    </div>
+
+                    <h3>
+                        RAMAROSON Josia Fitahiana
+                    </h3>
+
+                    <p>
+                        Génie Industriel — ICMP<br>
+                        3ème année
+                    </p>
+
+                </div>
+
+
+                <div class="team-card">
+
+                    <div class="team-initial">
+                        RH
+                    </div>
+
+                    <h3>
+                        RAFANOMEZANTSOA Hery Nambinina
+                    </h3>
+
+                    <p>
+                        Génie Industriel — ICMP<br>
+                        3ème année
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ISPM
+    ========================== -->
+
+    <section class="ispm-section">
+
+        <div class="ispm-box">
+
+            <div class="ispm-logo-text">
+                NOTRE INSTITUTION
+            </div>
+
+            <h2>
+                Institut Supérieur Polytechnique de Madagascar
+            </h2>
+
+            <p>
+                Nous poursuivons notre formation à l'
+                <strong>Institut Supérieur Polytechnique de Madagascar
+                (ISPM)</strong>, au sein de la mention Génie Industriel,
+                parcours Industries Chimiques, Minières et Pétrolières.
+            </p>
+
+            <p>
+                L'ISPM propose des formations allant de la Licence au Master
+                dans plusieurs domaines scientifiques, technologiques et
+                professionnels. Son département de Génie Industriel comprend
+                notamment le parcours Industries Chimiques, Minières et
+                Pétrolières.
+            </p>
+
+            <p>
+                Notre formation met l'accent sur l'acquisition de connaissances
+                scientifiques et techniques ainsi que sur leur application
+                pratique dans le monde professionnel.
+            </p>
+
+            <div class="ispm-location">
+                AMBATOMARO — ANTSOBOLO — ANTANANARIVO, MADAGASCAR
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONCLUSION / CTA
+    ========================== -->
+
+    <section class="about-cta">
+
+        <h2>
+            Découvrez notre univers
+        </h2>
+
+        <p>
+            Explorez notre collection de parfums ou laissez libre cours à votre
+            imagination avec notre créateur de parfum personnalisé.
+        </p>
+
+        <a href="parfum.html" class="about-btn">
+            Découvrir nos parfums
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div>
+                <h3>Élégance Parfumerie</h3>
+
+                <p>
+                    L'art du parfum, imaginé par des étudiants en
+                    Génie Industriel.
+                </p>
+            </div>
+
+            <div>
+                <h4>Navigation</h4>
+
+                <a href="index.html">Accueil</a>
+                <a href="parfum.html">Nos parfums</a>
+                <a href="createur.html">Crée ton parfum</a>
+                <a href="apropos.html">À propos</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div>
+                <h4>Notre parcours</h4>
+
+                <p>Génie Industriel</p>
+                <p>Industries Chimiques, Minières et Pétrolières</p>
+                <p>3ème année</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Élégance Parfumerie — Projet universitaire
+        </div>
+
+    </footer>
+
+
+    <!-- PANIER -->
+
+    <script src="js/panier.js"></script>
+
+</body>
+</html>

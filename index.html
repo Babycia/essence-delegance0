@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Élégance Parfumerie</title>
+
+    <!-- Police élégante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Style des vraies photos -->
+    <style>
+        .product-photo {
+            display: block;
+            width: 100%;
+            height: 100%;
+            max-height: 330px;
+            object-fit: contain;
+            object-position: center;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-photo {
+            transform: scale(1.04);
+        }
+
+        /* Logo ISPM dans l'en-tête */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo a {
+            text-decoration: none;
+        }
+
+        .ispm-logo {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 25px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #1b1816;
+        }
+
+        .logo-text small {
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 8px;
+            letter-spacing: 4px;
+            color: #b6935d;
+            margin-top: 2px;
+        }
+
+        /* Logo dans le footer */
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo .ispm-logo {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <a href="index.html">
+                <img
+                    src="images/logo_ispm.PNG"
+                    alt="Logo ISPM"
+                    class="ispm-logo"
+                >
+            </a>
+
+            <div class="logo-text">
+                <span>ÉLÉGANCE</span>
+                <small>PARFUMERIE</small>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="index.html" class="active">
+                Accueil
+            </a>
+
+            <a href="parfum.html">
+                Nos parfums
+            </a>
+
+            <a href="createur.html">
+                Crée ton parfum
+            </a>
+
+            <a href="apropos.html">
+                À propos
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <a href="panier.html" class="cart-link">
+            Panier <span class="cart-count">0</span>
+        </a>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    L'ART DU PARFUM
+                </p>
+
+                <h1>
+                    Des fragrances<br>
+                    qui racontent<br>
+                    <em>votre histoire.</em>
+                </h1>
+
+                <p class="hero-text">
+                    Découvrez une collection de parfums créés avec passion,
+                    où chaque fragrance révèle une personnalité unique.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="parfum.html" class="btn-primary">
+                        Découvrir la collection
+                    </a>
+
+                    <a href="createur.html" class="btn-secondary">
+                        Crée ton parfum
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOUTEILLE HERO TEMPORAIRE -->
+
+            <div class="hero-visual">
+
+                <div class="hero-glow"></div>
+
+                <div class="hero-bottle">
+
+                    <div class="bottle-cap"></div>
+
+                    <div class="bottle-neck"></div>
+
+                    <div class="bottle-body">
+
+                        <div class="bottle-label">
+
+                            <strong>
+                                ÉLÉGANCE
+                            </strong>
+
+                            <span>
+                                PARFUMERIE
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-shadow"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INTRODUCTION ================= -->
+
+        <section class="intro">
+
+            <p class="section-label">
+                NOTRE UNIVERS
+            </p>
+
+            <h2>
+                Une fragrance pour<br>
+                <em>chaque personnalité.</em>
+            </h2>
+
+            <p class="intro-text">
+                Élégance Parfumerie imagine des fragrances uniques,
+                pensées pour accompagner chaque moment de votre vie.
+                Des compositions originales, délicates et inoubliables.
+            </p>
+
+        </section>
+
+
+        <!-- ================= COLLECTION ================= -->
+
+        <section class="collection-home">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        NOTRE COLLECTION
+                    </p>
+
+                    <h2>
+                        Nos parfums
+                    </h2>
+
+                </div>
+
+                <a href="parfum.html" class="view-all">
+                    Voir toute la collection →
+                </a>
+
+            </div>
+
+
+            <div class="home-products">
+
+
+                <!-- ================= PARFUM 1 ================= -->
+
+                <article class="product-card">
+
+                    <div class="product-image bottle-choco">
+
+                        <img
+                            src="images/choco_menthe.JPG"
+                            alt="Choco Menthe Fraîche"
+                            class="product-photo"
+                        >
+
+                        <span class="product-number">
+                            01
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            FRAIS & GOURMAND
+                        </p>
+
+                        <h3>
+                            Choco Menthe Fraîche
+                        </h3>
+
+                        <p class="product-format">
+                            10 ml
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ================= PARFUM 2 ================= -->
+
+                <article class="product-card">
+
+                    <div class="product-image bottle-fraise">
+
+                        <img
+                            src="images/frais_gourmand.JPG"
+                            alt="Frais Gourmand"
+                            class="product-photo"
+                        >
+
+                        <span class="product-number">
+                            02
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            GOURMAND
+                        </p>
+
+                        <h3>
+                            Frais Gourmand
+                        </h3>
+
+                        <p class="product-format">
+                            10 ml
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ================= PARFUM 3 ================= -->
+
+                <article class="product-card">
+
+                    <div class="product-image bottle-exotique">
+
+                        <img
+                            src="images/exotique_flottant.JPG"
+                            alt="Exotique Flottant"
+                            class="product-photo"
+                        >
+
+                        <span class="product-number">
+                            03
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            EXOTIQUE
+                        </p>
+
+                        <h3>
+                            Exotique Flottant
+                        </h3>
+
+                        <p class="product-format">
+                            10 ml
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ================= PARFUM 4 ================= -->
+
+                <article class="product-card">
+
+                    <div class="product-image bottle-agrume">
+
+                        <img
+                            src="images/agrume_epice_vanille.JPG"
+                            alt="Agrume Épicé et Vanille"
+                            class="product-photo"
+                        >
+
+                        <span class="product-number">
+                            04
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            ÉPICÉ & VANILLÉ
+                        </p>
+
+                        <h3>
+                            Agrume Épicé et Vanille
+                        </h3>
+
+                        <p class="product-format">
+                            5 ml
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ================= PARFUM 5 ================= -->
+
+                <article class="product-card">
+
+                    <div class="product-image bottle-boisee">
+
+                        <img
+                            src="images/boisee_choco.JPG"
+                            alt="Boisée Choco"
+                            class="product-photo"
+                        >
+
+                        <span class="product-number">
+                            05
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            BOISÉ
+                        </p>
+
+                        <h3>
+                            Boisée Choco
+                        </h3>
+
+                        <p class="product-format">
+                            10 ml
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ================= PARFUM 6 ================= -->
+
+                <article class="product-card">
+
+                    <div class="product-image bottle-sport">
+
+                        <img
+                            src="images/frais_sport.JPG"
+                            alt="Frais Sport"
+                            class="product-photo"
+                        >
+
+                        <span class="product-number">
+                            06
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            FRAIS
+                        </p>
+
+                        <h3>
+                            Frais Sport
+                        </h3>
+
+                        <p class="product-format">
+                            5 ml
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CREATEUR ================= -->
+
+        <section class="custom-section">
+
+
+            <div class="custom-image">
+
+                <div class="custom-bottle">
+
+                    <div class="custom-cap"></div>
+
+                    <div class="custom-neck"></div>
+
+                    <div class="custom-body">
+
+                        <span>
+                            CRÉE
+                        </span>
+
+                        <strong>
+                            TON PARFUM
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="custom-content">
+
+                <p class="section-label">
+                    UNE EXPÉRIENCE UNIQUE
+                </p>
+
+                <h2>
+                    Crée ton parfum.<br>
+                    <em>Imagine ton univers.</em>
+                </h2>
+
+                <p>
+                    Choisis ta famille olfactive, ton intensité,
+                    ton ambiance, ton format et donne un nom à
+                    ta création.
+                </p>
+
+                <a href="createur.html" class="btn-primary">
+                    Commencer ma création
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= AVANTAGES ================= -->
+
+        <section class="advantages">
+
+
+            <div class="advantage">
+
+                <span class="advantage-icon">
+                    ✦
+                </span>
+
+                <h3>
+                    Créations originales
+                </h3>
+
+                <p>
+                    Des fragrances imaginées et créées avec passion.
+                </p>
+
+            </div>
+
+
+
+            <div class="advantage">
+
+                <span class="advantage-icon">
+                    ♡
+                </span>
+
+                <h3>
+                    Fait avec soin
+                </h3>
+
+                <p>
+                    Chaque parfum est préparé avec attention.
+                </p>
+
+            </div>
+
+
+
+            <div class="advantage">
+
+                <span class="advantage-icon">
+                    ◇
+                </span>
+
+                <h3>
+                    Pour vous
+                </h3>
+
+                <p>
+                    Des créations pensées pour chaque personnalité.
+                </p>
+
+            </div>
+
+
+
+            <div class="advantage">
+
+                <span class="advantage-icon">
+                    ⌁
+                </span>
+
+                <h3>
+                    Commande simple
+                </h3>
+
+                <p>
+                    Choisissez votre parfum et passez commande facilement.
+                </p>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+
+        <div class="footer-brand">
+
+            <div class="logo footer-logo">
+
+                <img
+                    src="images/logo_ispm.PNG"
+                    alt="Logo ISPM"
+                    class="ispm-logo"
+                >
+
+                <div class="logo-text">
+
+                    <span>
+                        ÉLÉGANCE
+                    </span>
+
+                    <small>
+                        PARFUMERIE
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                L'art de créer des fragrances<br>
+                qui racontent votre histoire.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Navigation
+            </h4>
+
+            <a href="index.html">
+                Accueil
+            </a>
+
+            <a href="parfum.html">
+                Nos parfums
+            </a>
+
+            <a href="createur.html">
+                Crée ton parfum
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Informations
+            </h4>
+
+            <a href="apropos.html">
+                À propos
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            <a href="panier.html">
+                Mon panier
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Élégance Parfumerie
+            </h4>
+
+            <p>
+                Une création de notre projet<br>
+                de création de parfum.
+            </p>
+
+        </div>
+
+
+    </footer>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Élégance Parfumerie — Tous droits réservés.
+        </p>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/panier.js"></script>
+
+</body>
+</html>

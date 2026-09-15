@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact — Élégance Parfumerie</title>
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =========================================================
+           PAGE CONTACT
+           ÉLÉGANCE PARFUMERIE
+           ========================================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #faf5ef;
+            color: #191715;
+            font-family: "Montserrat", Arial, sans-serif;
+        }
+
+        /* =========================================================
+           NAVBAR
+           ========================================================= */
+
+        .navbar {
+            width: 100%;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 253, 249, 0.96);
+            border-bottom: 1px solid rgba(25, 23, 21, 0.08);
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #191715;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .navigation a,
+        .cart-link {
+            text-decoration: none;
+            color: #191715;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .navigation a:hover,
+        .cart-link:hover {
+            color: #b89563;
+        }
+
+        .cart-link {
+            position: relative;
+        }
+
+        .cart-count {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 5px;
+            margin-left: 5px;
+            border-radius: 50%;
+            background: #b89563;
+            color: white;
+            font-size: 10px;
+        }
+
+        /* =========================================================
+           HERO CONTACT
+           ========================================================= */
+
+        .contact-hero {
+            padding: 80px 7% 65px;
+            text-align: center;
+            background: #efd6cc;
+        }
+
+        .contact-eyebrow {
+            color: #b89563;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .contact-hero h1 {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: clamp(48px, 7vw, 78px);
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .contact-hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #65584f;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* =========================================================
+           CONTENU
+           ========================================================= */
+
+        .contact-section {
+            padding: 75px 7% 90px;
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 45px;
+        }
+
+        /* =========================================================
+           INFORMATIONS
+           ========================================================= */
+
+        .contact-info {
+            padding: 15px 0;
+        }
+
+        .contact-info h2,
+        .contact-form h2 {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-intro {
+            color: #65584f;
+            font-size: 13px;
+            line-height: 1.9;
+            margin-bottom: 35px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(25, 23, 21, 0.08);
+        }
+
+        .contact-item:first-of-type {
+            border-top: 1px solid rgba(25, 23, 21, 0.08);
+        }
+
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            border: 1px solid #b89563;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #b89563;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 20px;
+        }
+
+        .contact-item-label {
+            color: #8a7c72;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .contact-item-value {
+            color: #292522;
+            font-size: 13px;
+            line-height: 1.6;
+            word-break: break-word;
+        }
+
+        .contact-item-value a {
+            color: #292522;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .contact-item-value a:hover {
+            color: #b89563;
+        }
+
+        /* =========================================================
+           FORMULAIRE
+           ========================================================= */
+
+        .contact-form {
+            background: #fffdf9;
+            padding: 38px;
+            border: 1px solid rgba(25, 23, 21, 0.08);
+        }
+
+        .form-intro {
+            color: #776960;
+            font-size: 12px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            color: #65584f;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid rgba(25, 23, 21, 0.15);
+            background: #faf5ef;
+            padding: 13px 14px;
+            color: #191715;
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 12px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #b89563;
+            background: #fffdf9;
+        }
+
+        .form-group textarea {
+            min-height: 145px;
+            resize: vertical;
+        }
+
+        .contact-submit {
+            width: 100%;
+            border: none;
+            background: #191715;
+            color: white;
+            padding: 16px 25px;
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-submit:hover {
+            background: #b89563;
+        }
+
+        .form-message {
+            display: none;
+            margin-top: 18px;
+            padding: 13px;
+            background: #efd6cc;
+            color: #55483f;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           PETITE PHRASE
+           ========================================================= */
+
+        .contact-bottom {
+            text-align: center;
+            margin-top: 65px;
+        }
+
+        .contact-bottom p {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 28px;
+            color: #55483f;
+        }
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        .footer {
+            background: #191715;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .footer-logo {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .footer p {
+            color: #c7beb7;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                padding: 18px 5%;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .navigation {
+                gap: 12px;
+            }
+
+            .navigation a {
+                font-size: 10px;
+            }
+
+            .contact-hero {
+                padding: 60px 5% 50px;
+            }
+
+            .contact-section {
+                padding: 50px 5% 65px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-form {
+                padding: 25px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .contact-info h2,
+            .contact-form h2 {
+                font-size: 30px;
+            }
+
+            .contact-bottom {
+                margin-top: 45px;
+            }
+
+            .contact-bottom p {
+                font-size: 24px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            Élégance
+        </a>
+
+        <nav class="navigation">
+
+            <a href="index.html">
+                Accueil
+            </a>
+
+            <a href="parfum.html">
+                Nos parfums
+            </a>
+
+            <a href="createur.html">
+                Crée ton parfum
+            </a>
+
+            <a href="apropos.html">
+                À propos
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            <a href="panier.html" class="cart-link">
+                Panier
+                <span class="cart-count" id="cart-count">0</span>
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+
+    <section class="contact-hero">
+
+        <div class="contact-eyebrow">
+            Élégance Parfumerie
+        </div>
+
+        <h1>
+            Contactez-nous
+        </h1>
+
+        <p>
+            Une question sur nos fragrances, votre commande ou la création
+            de votre parfum personnalisé ? Notre équipe est à votre écoute.
+        </p>
+
+    </section>
+
+
+    <!-- =========================================================
+         CONTACT
+         ========================================================= -->
+
+    <main class="contact-section">
+
+        <div class="contact-container">
+
+            <!-- INFORMATIONS -->
+
+            <section class="contact-info">
+
+                <h2>
+                    Parlons parfum
+                </h2>
+
+                <p class="contact-intro">
+                    Nous sommes heureux de vous accompagner dans votre
+                    découverte de l'univers d'Élégance Parfumerie.
+                    N'hésitez pas à nous contacter pour toute question.
+                </p>
+
+
+                <!-- EMAIL -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        @
+                    </div>
+
+                    <div>
+
+                        <div class="contact-item-label">
+                            E-mail
+                        </div>
+
+                        <div class="contact-item-value">
+
+                            <a href="mailto:eleganceparfumerieISPM@gmail.com">
+                                eleganceparfumerieISPM@gmail.com
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TELEPHONE -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ☎
+                    </div>
+
+                    <div>
+
+                        <div class="contact-item-label">
+                            Téléphone
+                        </div>
+
+                        <div class="contact-item-value">
+
+                            <a href="tel:034XXXXXXX">
+                                034XXXXXXX
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADRESSE -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ♧
+                    </div>
+
+                    <div>
+
+                        <div class="contact-item-label">
+                            Nous trouver
+                        </div>
+
+                        <div class="contact-item-value">
+                            ISPM Antsobolo
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- FORMULAIRE -->
+
+            <section class="contact-form">
+
+                <h2>
+                    Envoyez-nous un message
+                </h2>
+
+                <p class="form-intro">
+                    Remplissez le formulaire ci-dessous et votre message
+                    sera pris en compte.
+                </p>
+
+
+                <form id="contactForm">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="nom">
+                                Nom
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nom"
+                                name="nom"
+                                placeholder="Votre nom"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                E-mail
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Votre e-mail"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="sujet">
+                            Sujet
+                        </label>
+
+                        <input
+                            type="text"
+                            id="sujet"
+                            name="sujet"
+                            placeholder="Objet de votre message"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Écrivez votre message..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="contact-submit"
+                    >
+                        Envoyer le message
+                    </button>
+
+
+                    <div
+                        class="form-message"
+                        id="formMessage"
+                    >
+                        Merci pour votre message.
+                        Nous reviendrons vers vous prochainement.
+                    </div>
+
+                </form>
+
+            </section>
+
+        </div>
+
+
+        <div class="contact-bottom">
+
+            <p>
+                « Des fragrances qui racontent votre histoire. »
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            Élégance Parfumerie
+        </div>
+
+        <p>
+            Des fragrances qui racontent votre histoire.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT DU FORMULAIRE
+         ========================================================= -->
+
+    <script>
+
+        document
+            .getElementById("contactForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const message =
+                    document.getElementById("formMessage");
+
+                message.style.display = "block";
+
+                this.reset();
+
+            });
+
+
+        /* Compteur panier */
+
+        const panier =
+            JSON.parse(
+                localStorage.getItem("panier")
+            ) || [];
+
+        const cartCount =
+            document.getElementById("cart-count");
+
+        if (cartCount) {
+
+            const totalArticles =
+                panier.reduce(function(total, produit) {
+
+                    return total +
+                        Number(
+                            produit.quantite ??
+                            produit.nombre ??
+                            1
+                        );
+
+                }, 0);
+
+            cartCount.textContent =
+                totalArticles;
+
+        }
+
+    </script>
+
+</body>
+</html>

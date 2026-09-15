@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crée ton parfum | Élégance Parfumerie</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =====================================================
+           PAGE CRÉE TON PARFUM
+        ===================================================== */
+
+        .creator-page {
+            background: #f9f3ed;
+            min-height: 100vh;
+        }
+
+        /* HERO */
+        .creator-hero {
+            position: relative;
+            padding: 90px 20px 70px;
+            text-align: center;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(239,216,207,.75), transparent 30%),
+                radial-gradient(circle at 80% 30%, rgba(214,188,145,.22), transparent 28%),
+                #f9f3ed;
+        }
+
+        .creator-hero::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            background: rgba(231,195,183,.20);
+            top: -220px;
+            left: -180px;
+        }
+
+        .creator-hero::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: rgba(182,147,93,.08);
+            bottom: -220px;
+            right: -130px;
+        }
+
+        .creator-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .creator-eyebrow {
+            display: block;
+            margin-bottom: 18px;
+            color: #b6935d;
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .creator-hero h1 {
+            margin: 0 0 20px;
+            color: #1b1816;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: clamp(48px, 7vw, 78px);
+            font-weight: 500;
+            line-height: .95;
+        }
+
+        .creator-hero h1 span {
+            color: #b6935d;
+            font-style: italic;
+        }
+
+        .creator-hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #65554b;
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* CONTENEUR */
+        .creator-container {
+            width: min(100% - 40px, 1050px);
+            margin: 0 auto;
+            padding-bottom: 90px;
+        }
+
+        /* PROGRESSION */
+        .creator-progress {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            max-width: 850px;
+            margin: -5px auto 55px;
+        }
+
+        .creator-progress-line {
+            position: absolute;
+            top: 22px;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: #d5a596;
+            z-index: 0;
+        }
+
+        .creator-step-indicator {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 9px;
+            color: #9b8980;
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .creator-step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid #d5a596;
+            border-radius: 50%;
+            background: #f9f3ed;
+            color: #9b8980;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 20px;
+            transition: .3s ease;
+        }
+
+        .creator-step-indicator.active .creator-step-number {
+            border-color: #b6935d;
+            background: #1b1816;
+            color: white;
+        }
+
+        .creator-step-indicator.active {
+            color: #1b1816;
+        }
+
+        /* FORMULAIRE */
+        .creator-card {
+            max-width: 900px;
+            margin: auto;
+            padding: clamp(30px, 5vw, 65px);
+            border: 1px solid rgba(182,147,93,.25);
+            background: rgba(255,250,246,.9);
+            box-shadow: 0 25px 70px rgba(70,45,35,.08);
+        }
+
+        .creator-step {
+            display: none;
+        }
+
+        .creator-step.active {
+            display: block;
+            animation: creatorFade .45s ease;
+        }
+
+        @keyframes creatorFade {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .creator-step-title {
+            margin: 0 0 10px;
+            color: #1b1816;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: clamp(32px, 5vw, 46px);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .creator-step-description {
+            max-width: 600px;
+            margin: 0 auto 35px;
+            color: #806f66;
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        /* OPTIONS */
+        .creator-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .creator-option {
+            position: relative;
+        }
+
+        .creator-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .creator-option label {
+            display: block;
+            min-height: 110px;
+            padding: 25px;
+            border: 1px solid #e3d4cb;
+            background: #fffaf6;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+
+        .creator-option label:hover {
+            border-color: #b6935d;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(70,45,35,.07);
+        }
+
+        .creator-option input:checked + label {
+            border-color: #b6935d;
+            background: #f5e6df;
+            box-shadow: inset 0 0 0 1px #b6935d;
+        }
+
+        .option-name {
+            display: block;
+            margin-bottom: 7px;
+            color: #1b1816;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 25px;
+        }
+
+        .option-description {
+            display: block;
+            color: #806f66;
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        /* FORMAT */
+        .format-options {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .format-options .creator-option label {
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .format-price {
+            display: block;
+            margin-top: 10px;
+            color: #b6935d;
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* NOM */
+        .creator-name-box {
+            max-width: 600px;
+            margin: 35px auto 0;
+        }
+
+        .creator-name-box label {
+            display: block;
+            margin-bottom: 10px;
+            color: #1b1816;
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .creator-name-box input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 18px 20px;
+            border: 1px solid #d9c8be;
+            outline: none;
+            background: white;
+            color: #1b1816;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 22px;
+            transition: .3s ease;
+        }
+
+        .creator-name-box input:focus {
+            border-color: #b6935d;
+            box-shadow: 0 0 0 3px rgba(182,147,93,.10);
+        }
+
+        /* RÉSUMÉ */
+        .creator-summary {
+            margin-top: 45px;
+            padding: 25px;
+            border-top: 1px solid #e4d7d0;
+            border-bottom: 1px solid #e4d7d0;
+        }
+
+        .creator-summary-title {
+            margin-bottom: 18px;
+            color: #b6935d;
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 7px 0;
+            color: #65554b;
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .summary-row strong {
+            color: #1b1816;
+            text-align: right;
+        }
+
+        /* BOUTONS */
+        .creator-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .creator-btn {
+            min-width: 150px;
+            padding: 15px 25px;
+            border: 1px solid #1b1816;
+            background: #1b1816;
+            color: white;
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+
+        .creator-btn:hover {
+            background: #b6935d;
+            border-color: #b6935d;
+        }
+
+        .creator-btn.secondary {
+            background: transparent;
+            color: #1b1816;
+            border-color: #d5c3b9;
+        }
+
+        .creator-btn.secondary:hover {
+            background: #f5e6df;
+            border-color: #b6935d;
+        }
+
+        .creator-btn:disabled {
+            opacity: .35;
+            cursor: not-allowed;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 750px) {
+            .creator-hero {
+                padding: 65px 20px 55px;
+            }
+
+            .creator-container {
+                width: min(100% - 25px, 1050px);
+            }
+
+            .creator-progress {
+                margin-bottom: 35px;
+            }
+
+            .creator-step-indicator {
+                font-size: 8px;
+                letter-spacing: .5px;
+            }
+
+            .creator-step-number {
+                width: 38px;
+                height: 38px;
+            }
+
+            .creator-progress-line {
+                top: 19px;
+            }
+
+            .creator-options,
+            .format-options {
+                grid-template-columns: 1fr;
+            }
+
+            .format-options .creator-option label {
+                min-height: auto;
+                text-align: left;
+                display: block;
+            }
+
+            .creator-actions {
+                flex-direction: column-reverse;
+            }
+
+            .creator-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="creator-page">
+
+    <!-- ================= NAVIGATION ================= -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            Élégance
+            <span>Parfumerie</span>
+        </a>
+
+        <nav class="navigation">
+            <a href="index.html">Accueil</a>
+            <a href="parfum.html">Nos parfums</a>
+            <a href="createur.html" class="active">Crée ton parfum</a>
+            <a href="apropos.html">À propos</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <a href="panier.html" class="cart-link">
+            Panier
+            <span class="cart-count" id="cart-count">0</span>
+        </a>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+    <section class="creator-hero">
+
+        <div class="creator-hero-content">
+
+            <span class="creator-eyebrow">
+                Création personnalisée
+            </span>
+
+            <h1>
+                Crée <span>ton parfum</span>
+            </h1>
+
+            <p>
+                Imagine une fragrance qui te ressemble.
+                Choisis ton univers olfactif, son intensité,
+                son ambiance et son format pour créer ton parfum unique.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTENU ================= -->
+    <main class="creator-container">
+
+        <!-- PROGRESSION -->
+        <div class="creator-progress">
+
+            <div class="creator-progress-line"></div>
+
+            <div class="creator-step-indicator active" id="step-indicator-1">
+                <div class="creator-step-number">1</div>
+                <span>Famille</span>
+            </div>
+
+            <div class="creator-step-indicator" id="step-indicator-2">
+                <div class="creator-step-number">2</div>
+                <span>Intensité</span>
+            </div>
+
+            <div class="creator-step-indicator" id="step-indicator-3">
+                <div class="creator-step-number">3</div>
+                <span>Ambiance</span>
+            </div>
+
+            <div class="creator-step-indicator" id="step-indicator-4">
+                <div class="creator-step-number">4</div>
+                <span>Format</span>
+            </div>
+
+            <div class="creator-step-indicator" id="step-indicator-5">
+                <div class="creator-step-number">5</div>
+                <span>Nom</span>
+            </div>
+
+        </div>
+
+
+        <!-- CARTE -->
+        <section class="creator-card">
+
+
+            <!-- ================= ÉTAPE 1 ================= -->
+            <div class="creator-step active" id="step-1">
+
+                <h2 class="creator-step-title">
+                    Quelle famille te ressemble ?
+                </h2>
+
+                <p class="creator-step-description">
+                    Choisis l'univers olfactif dans lequel tu souhaites créer ton parfum.
+                </p>
+
+                <div class="creator-options">
+
+                    <div class="creator-option">
+                        <input type="radio" id="famille-florale"
+                               name="famille" value="Florale">
+                        <label for="famille-florale">
+                            <span class="option-name">Florale</span>
+                            <span class="option-description">
+                                Délicate, élégante et romantique.
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="creator-option">
+                        <input type="radio" id="famille-boisee"
+                               name="famille" value="Boisée">
+                        <label for="famille-boisee">
+                            <span class="option-name">Boisée</span>
+                            <span class="option-description">
+                                Chaleureuse, profonde et sophistiquée.
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="creator-option">
+                        <input type="radio" id="famille-fruitee"
+                               name="famille" value="Fruitée">
+                        <label for="famille-fruitee">
+                            <span class="option-name">Fruitée</span>
+                            <span class="option-description">
+                                Gourmande, fraîche et pétillante.
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="creator-option">
+                        <input type="radio" id="famille-fraiche"
+                               name="famille" value="Fraîche">
+                        <label for="famille-fraiche">
+                            <span class="option-name">Fraîche</span>
+                            <span class="option-description">
+                                Légère, vive et rafraîchissante.
+                            </span>
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ÉTAPE 2 ================= -->
+            <div class="creator-step" id="step-2">
+
+                <h2 class="creator-step-title">
+                    Quelle intensité ?
+                </h2>
+
+                <p class="creator-step-description">
+                    Détermine la présence et le caractère de ta fragrance.
+                </p>
+
+                <div class="creator-options">
+
+                    <div class="creator-option">
+                        <input type="radio" id="intensite-legere"
+                               name="intensite" value="Légère">
+                        <label for="intensite-legere">
+                            <span class="option-name">Légère</span>
+                            <span class="option-description">
+                                Discrète et subtile, parfaite au quotidien.
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="creator-option">
+                        <input type="radio" id="intensite-equilibree"
+                               name="intensite" value="Équilibrée">
+                        <label for="intensite-equilibree">
+                            <span class="option-name">Équilibrée</span>
+                            <span class="option-description">
+                                Présente et élégante, sans être trop forte.
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="creator-option">
+                        <input type="radio" id="intensite-intense"
+                               name="intensite" value="Intense">
+                        <label for="intensite-intense">
+                            <span class="option-name">Intense</span>
+                            <span class="option-description">
+                                Puissante et affirmée, pour laisser une impression.
+                            </span>
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ÉTAPE 3 ================= -->
+            <div class="creator-step" id="step-3">
+
+                <h2 class="creator-step-title">
+                    Quelle ambiance ?
+                </h2>
+
+                <p class="creator-step-description">
+                    Choisis l'atmosphère que ton parfum doit évoquer.
+                </p>
+
+                <div class="creator-options">
+
+                    <div class="creator-option">
+                        <input type="radio" id="ambiance-romantique"
+                               name="ambiance" value="Romantique">
+                        <label for="ambiance-romantique">
+                            <span class="option-name">Romantique</span>
+                            <span class="option-description">
+                                Douce, élégante et pleine de charme.
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="creator-option">
+                        <input type="radio" id="ambiance-elegante"
+                               name="ambiance" value="Élégante">
+                        <label for="ambiance-elegante">
+                            <span class="option-name">Élégante</span>
+                            <span class="option-description">
+                                Raffinée, chic et intemporelle.
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="creator-option">
+                        <input type="radio" id="ambiance-dynamique"
+                               name="ambiance" value="Dynamique">
+                        <label for="ambiance-dynamique">
+                            <span class="option-name">Dynamique</span>
+                            <span class="option-description">
+                                Énergique, fraîche et moderne.
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="creator-option">
+                        <input type="radio" id="ambiance-sensuelle"
+                               name="ambiance" value="Sensuelle">
+                        <label for="ambiance-sensuelle">
+                            <span class="option-name">Sensuelle</span>
+                            <span class="option-description">
+                                Mystérieuse, chaleureuse et captivante.
+                            </span>
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ÉTAPE 4 ================= -->
+            <div class="creator-step" id="step-4">
+
+                <h2 class="creator-step-title">
+                    Choisis ton format
+                </h2>
+
+                <p class="creator-step-description">
+                    Sélectionne le format qui correspond à ton envie.
+                </p>
+
+                <div class="creator-options format-options">
+
+                    <div class="creator-option">
+                        <input type="radio" id="format-5"
+                               name="format" value="5 ml"
+                               data-prix="10000">
+
+                        <label for="format-5">
+                            <span class="option-name">5 ml</span>
+                            <span class="option-description">
+                                Petit format à emporter.
+                            </span>
+                            <span class="format-price">10 000 Ar</span>
+                        </label>
+                    </div>
+
+                    <div class="creator-option">
+                        <input type="radio" id="format-10"
+                               name="format" value="10 ml"
+                               data-prix="18000">
+
+                        <label for="format-10">
+                            <span class="option-name">10 ml</span>
+                            <span class="option-description">
+                                Format pratique.
+                            </span>
+                            <span class="format-price">18 000 Ar</span>
+                        </label>
+                    </div>
+
+                    <div class="creator-option">
+                        <input type="radio" id="format-30"
+                               name="format" value="30 ml"
+                               data-prix="35000">
+
+                        <label for="format-30">
+                            <span class="option-name">30 ml</span>
+                            <span class="option-description">
+                                Format généreux.
+                            </span>
+                            <span class="format-price">35 000 Ar</span>
+                        </label>
+                    </div>
+
+                    <div class="creator-option">
+                        <input type="radio" id="format-50"
+                               name="format" value="50 ml"
+                               data-prix="50000">
+
+                        <label for="format-50">
+                            <span class="option-name">50 ml</span>
+                            <span class="option-description">
+                                Grand format.
+                            </span>
+                            <span class="format-price">50 000 Ar</span>
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ÉTAPE 5 ================= -->
+            <div class="creator-step" id="step-5">
+
+                <h2 class="creator-step-title">
+                    Donne-lui un nom
+                </h2>
+
+                <p class="creator-step-description">
+                    Ton parfum est presque prêt. Donne-lui un nom qui te ressemble.
+                </p>
+
+                <div class="creator-name-box">
+
+                    <label for="nom-parfum">
+                        Nom de ton parfum
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nom-parfum"
+                        placeholder="Ex. Éclat de Rose"
+                        maxlength="40"
+                    >
+
+                </div>
+
+
+                <!-- RÉSUMÉ -->
+                <div class="creator-summary">
+
+                    <div class="creator-summary-title">
+                        Résumé de ta création
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Famille</span>
+                        <strong id="summary-famille">—</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Intensité</span>
+                        <strong id="summary-intensite">—</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Ambiance</span>
+                        <strong id="summary-ambiance">—</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Format</span>
+                        <strong id="summary-format">—</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ACTIONS ================= -->
+            <div class="creator-actions">
+
+                <button
+                    type="button"
+                    class="creator-btn secondary"
+                    id="prevBtn"
+                    disabled>
+                    ← Précédent
+                </button>
+
+                <button
+                    type="button"
+                    class="creator-btn"
+                    id="nextBtn">
+                    Suivant →
+                </button>
+
+                <button
+                    type="button"
+                    class="creator-btn"
+                    id="finishBtn"
+                    style="display:none;">
+                    Créer mon parfum
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+                <div class="logo">
+                    Élégance
+                    <span>Parfumerie</span>
+                </div>
+
+                <p>
+                    Des fragrances qui racontent votre histoire.
+                </p>
+            </div>
+
+            <div class="footer-links">
+
+                <div>
+                    <h4>Navigation</h4>
+                    <a href="index.html">Accueil</a>
+                    <a href="parfum.html">Nos parfums</a>
+                    <a href="createur.html">Crée ton parfum</a>
+                </div>
+
+                <div>
+                    <h4>Informations</h4>
+                    <a href="apropos.html">À propos</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="panier.html">Panier</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Élégance Parfumerie — Tous droits réservés.
+        </div>
+
+    </footer>
+
+
+    <!-- SCRIPTS -->
+    <script src="js/panier.js"></script>
+    <script src="js/createur.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Commande confirmée — Élégance Parfumerie</title>
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =========================================================
+           CONFIRMATION DE COMMANDE
+           ÉLÉGANCE PARFUMERIE
+           ========================================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #faf5ef;
+            color: #191715;
+            font-family: "Montserrat", Arial, sans-serif;
+        }
+
+        /* ---------- NAVBAR ---------- */
+
+        .navbar {
+            width: 100%;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 253, 249, 0.96);
+            border-bottom: 1px solid rgba(25, 23, 21, 0.08);
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #191715;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .navigation a,
+        .cart-link {
+            text-decoration: none;
+            color: #191715;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .navigation a:hover,
+        .cart-link:hover {
+            color: #b89563;
+        }
+
+        .cart-link {
+            position: relative;
+        }
+
+        .cart-count {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 5px;
+            margin-left: 5px;
+            border-radius: 50%;
+            background: #b89563;
+            color: white;
+            font-size: 10px;
+        }
+
+        /* ---------- PAGE ---------- */
+
+        .confirmation-page {
+            min-height: calc(100vh - 90px);
+            padding: 70px 7% 90px;
+        }
+
+        .confirmation-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* ---------- SUCCESS ---------- */
+
+        .success-box {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .success-icon {
+            width: 78px;
+            height: 78px;
+            margin: 0 auto 25px;
+            border: 1px solid #b89563;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #b89563;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 38px;
+        }
+
+        .success-label {
+            color: #b89563;
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .success-box h1 {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: clamp(42px, 6vw, 70px);
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 18px;
+        }
+
+        .success-message {
+            max-width: 600px;
+            margin: auto;
+            color: #65584f;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* ---------- ORDER NUMBER ---------- */
+
+        .order-number {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 24px;
+            border: 1px solid rgba(184, 149, 99, 0.45);
+            background: #fffdf9;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+        }
+
+        .order-number strong {
+            color: #b89563;
+        }
+
+        /* ---------- CARDS ---------- */
+
+        .confirmation-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .confirmation-card {
+            background: #fffdf9;
+            border: 1px solid rgba(25, 23, 21, 0.08);
+            padding: 30px;
+        }
+
+        .card-title {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 27px;
+            font-weight: 600;
+            margin-bottom: 22px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(25, 23, 21, 0.08);
+        }
+
+        /* ---------- PRODUCTS ---------- */
+
+        .order-product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(25, 23, 21, 0.07);
+        }
+
+        .order-product:last-child {
+            border-bottom: none;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .product-format {
+            color: #776960;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .product-price {
+            font-size: 13px;
+            font-weight: 600;
+            color: #b89563;
+            white-space: nowrap;
+        }
+
+        /* ---------- INFORMATION ---------- */
+
+        .info-line {
+            margin-bottom: 18px;
+        }
+
+        .info-label {
+            display: block;
+            color: #8a7c72;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            color: #292522;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* ---------- TOTAL ---------- */
+
+        .total-card {
+            background: #191715;
+            color: white;
+            padding: 28px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .total-label {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 26px;
+        }
+
+        .total-price {
+            color: #d6bd91;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        /* ---------- BUTTONS ---------- */
+
+        .confirmation-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 210px;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #191715;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #b89563;
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(25, 23, 21, 0.25);
+            color: #191715;
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: #efd6cc;
+            border-color: #efd6cc;
+        }
+
+        /* ---------- FOOTER ---------- */
+
+        .footer {
+            background: #191715;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .footer-logo {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .footer p {
+            color: #c7beb7;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ---------- MOBILE ---------- */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                padding: 18px 5%;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .navigation {
+                gap: 12px;
+            }
+
+            .navigation a {
+                font-size: 10px;
+            }
+
+            .confirmation-page {
+                padding: 50px 5% 65px;
+            }
+
+            .success-icon {
+                width: 68px;
+                height: 68px;
+                font-size: 32px;
+            }
+
+            .confirmation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .confirmation-card {
+                padding: 23px;
+            }
+
+            .card-title {
+                font-size: 25px;
+            }
+
+            .order-product {
+                align-items: flex-start;
+            }
+
+            .product-name {
+                font-size: 20px;
+            }
+
+            .total-card {
+                padding: 22px;
+            }
+
+            .total-label {
+                font-size: 23px;
+            }
+
+            .total-price {
+                font-size: 27px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            Élégance
+        </a>
+
+        <nav class="navigation">
+            <a href="index.html">Accueil</a>
+            <a href="parfum.html">Nos parfums</a>
+            <a href="createur.html">Crée ton parfum</a>
+            <a href="apropos.html">À propos</a>
+            <a href="contact.html">Contact</a>
+
+            <a href="panier.html" class="cart-link">
+                Panier
+                <span class="cart-count" id="cart-count">0</span>
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================================
+         CONFIRMATION
+         ========================================================= -->
+
+    <main class="confirmation-page">
+
+        <div class="confirmation-container">
+
+            <!-- MESSAGE DE SUCCÈS -->
+
+            <section class="success-box">
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <div class="success-label">
+                    Merci pour votre confiance
+                </div>
+
+                <h1>
+                    Commande confirmée
+                </h1>
+
+                <p class="success-message">
+                    Votre commande a bien été enregistrée.
+                    Nous vous remercions d'avoir choisi
+                    <strong>Élégance Parfumerie</strong>.
+                </p>
+
+                <div class="order-number">
+                    Numéro de commande :
+                    <strong id="order-number">—</strong>
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 INFORMATIONS
+                 ================================================= -->
+
+            <div class="confirmation-grid">
+
+                <!-- PRODUITS -->
+
+                <section class="confirmation-card">
+
+                    <h2 class="card-title">
+                        Votre commande
+                    </h2>
+
+                    <div id="order-products">
+
+                        <!-- Produits ajoutés automatiquement -->
+
+                    </div>
+
+                </section>
+
+
+                <!-- CLIENT / LIVRAISON -->
+
+                <section class="confirmation-card">
+
+                    <h2 class="card-title">
+                        Livraison
+                    </h2>
+
+                    <div class="info-line">
+                        <span class="info-label">
+                            Client
+                        </span>
+
+                        <div class="info-value" id="client-name">
+                            —
+                        </div>
+                    </div>
+
+                    <div class="info-line">
+                        <span class="info-label">
+                            Téléphone
+                        </span>
+
+                        <div class="info-value" id="client-phone">
+                            —
+                        </div>
+                    </div>
+
+                    <div class="info-line">
+                        <span class="info-label">
+                            E-mail
+                        </span>
+
+                        <div class="info-value" id="client-email">
+                            —
+                        </div>
+                    </div>
+
+                    <div class="info-line">
+                        <span class="info-label">
+                            Adresse
+                        </span>
+
+                        <div class="info-value" id="client-address">
+                            —
+                        </div>
+                    </div>
+
+                    <div class="info-line">
+                        <span class="info-label">
+                            Ville / quartier
+                        </span>
+
+                        <div class="info-value" id="client-location">
+                            —
+                        </div>
+                    </div>
+
+                    <div class="info-line">
+                        <span class="info-label">
+                            Indication
+                        </span>
+
+                        <div class="info-value" id="client-indication">
+                            —
+                        </div>
+                    </div>
+
+                    <div class="info-line">
+                        <span class="info-label">
+                            Paiement
+                        </span>
+
+                        <div class="info-value" id="payment-method">
+                            —
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- =================================================
+                 TOTAL
+                 ================================================= -->
+
+            <div class="total-card">
+
+                <div class="total-label">
+                    Total de la commande
+                </div>
+
+                <div class="total-price" id="order-total">
+                    0 Ar
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ACTIONS
+                 ================================================= -->
+
+            <div class="confirmation-actions">
+
+                <a href="index.html" class="btn btn-primary">
+                    Retour à l'accueil
+                </a>
+
+                <a href="parfum.html" class="btn btn-secondary">
+                    Découvrir nos parfums
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            Élégance Parfumerie
+        </div>
+
+        <p>
+            Des fragrances qui racontent votre histoire.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* -----------------------------------------
+               RÉCUPÉRATION DE LA DERNIÈRE COMMANDE
+               ----------------------------------------- */
+
+            const commandeJSON = localStorage.getItem("derniereCommande");
+
+            if (!commandeJSON) {
+
+                document.getElementById("order-number").textContent = "—";
+
+                document.getElementById("order-products").innerHTML = `
+                    <p style="color:#776960; font-size:13px; line-height:1.7;">
+                        Aucune commande récente n'a été trouvée.
+                    </p>
+                `;
+
+                return;
+            }
+
+
+            let commande;
+
+            try {
+
+                commande = JSON.parse(commandeJSON);
+
+            } catch (error) {
+
+                console.error("Erreur lors de la lecture de la commande :", error);
+
+                return;
+            }
+
+
+            /* -----------------------------------------
+               NUMÉRO DE COMMANDE
+               ----------------------------------------- */
+
+            let numeroCommande = commande.numeroCommande;
+
+            if (!numeroCommande) {
+
+                numeroCommande =
+                    "EP-" +
+                    Date.now().toString().slice(-8);
+
+            }
+
+            document.getElementById("order-number").textContent =
+                numeroCommande;
+
+
+            /* -----------------------------------------
+               PRODUITS
+               ----------------------------------------- */
+
+            const productsContainer =
+                document.getElementById("order-products");
+
+            let produits =
+                commande.produits ||
+                commande.panier ||
+                commande.items ||
+                [];
+
+
+            if (!Array.isArray(produits)) {
+                produits = [];
+            }
+
+
+            if (produits.length === 0) {
+
+                productsContainer.innerHTML = `
+                    <p style="color:#776960; font-size:13px; line-height:1.7;">
+                        Aucun produit à afficher.
+                    </p>
+                `;
+
+            } else {
+
+                productsContainer.innerHTML = "";
+
+                produits.forEach(function (produit) {
+
+                    const quantite =
+                        Number(
+                            produit.quantite ??
+                            produit.nombre ??
+                            1
+                        );
+
+                    const prix =
+                        Number(produit.prix) || 0;
+
+                    const sousTotal =
+                        prix * quantite;
+
+                    const format =
+                        produit.format ||
+                        "";
+
+                    const personnalise =
+                        produit.personnalise
+                            ? "Parfum personnalisé"
+                            : "Parfum";
+
+                    const div =
+                        document.createElement("div");
+
+                    div.className = "order-product";
+
+                    div.innerHTML = `
+                        <div class="product-info">
+
+                            <div class="product-name">
+                                ${produit.nom || "Parfum"}
+                            </div>
+
+                            <div class="product-format">
+                                ${personnalise}
+                                ${format ? " • " + format : ""}
+                                • Quantité : ${quantite}
+                            </div>
+
+                        </div>
+
+                        <div class="product-price">
+                            ${sousTotal.toLocaleString("fr-FR")} Ar
+                        </div>
+                    `;
+
+                    productsContainer.appendChild(div);
+
+                });
+
+            }
+
+
+            /* -----------------------------------------
+               INFORMATIONS CLIENT
+               ----------------------------------------- */
+
+            const client =
+                commande.client ||
+                commande.coordonnees ||
+                commande;
+
+
+            document.getElementById("client-name").textContent =
+                client.nom ||
+                client.name ||
+                "—";
+
+
+            document.getElementById("client-phone").textContent =
+                client.telephone ||
+                client.phone ||
+                "—";
+
+
+            document.getElementById("client-email").textContent =
+                client.email ||
+                "—";
+
+
+            /* -----------------------------------------
+               LIVRAISON
+               ----------------------------------------- */
+
+            const livraison =
+                commande.livraison ||
+                commande.delivery ||
+                commande;
+
+
+            document.getElementById("client-address").textContent =
+                livraison.adresse ||
+                livraison.address ||
+                "—";
+
+
+            const ville =
+                livraison.ville ||
+                livraison.city ||
+                "";
+
+
+            const quartier =
+                livraison.quartier ||
+                livraison.district ||
+                "";
+
+
+            let locationText = "";
+
+            if (ville) {
+                locationText += ville;
+            }
+
+            if (quartier) {
+
+                if (locationText) {
+                    locationText += " — ";
+                }
+
+                locationText += quartier;
+            }
+
+
+            document.getElementById("client-location").textContent =
+                locationText || "—";
+
+
+            document.getElementById("client-indication").textContent =
+                livraison.indication ||
+                livraison.instructions ||
+                "—";
+
+
+            /* -----------------------------------------
+               PAIEMENT
+               ----------------------------------------- */
+
+            const paiement =
+                commande.paiement ||
+                commande.payment ||
+                commande.modePaiement ||
+                commande.paymentMethod ||
+                "—";
+
+
+            document.getElementById("payment-method").textContent =
+                paiement;
+
+
+            /* -----------------------------------------
+               TOTAL
+               ----------------------------------------- */
+
+            let total =
+                Number(commande.total) ||
+                Number(commande.montantTotal) ||
+                0;
+
+
+            if (!total && produits.length > 0) {
+
+                total = produits.reduce(function (somme, produit) {
+
+                    const prix =
+                        Number(produit.prix) || 0;
+
+                    const quantite =
+                        Number(
+                            produit.quantite ??
+                            produit.nombre ??
+                            1
+                        );
+
+                    return somme + prix * quantite;
+
+                }, 0);
+
+            }
+
+
+            document.getElementById("order-total").textContent =
+                total.toLocaleString("fr-FR") + " Ar";
+
+
+            /* -----------------------------------------
+               COMPTEUR PANIER
+               ----------------------------------------- */
+
+            const cartCount =
+                document.getElementById("cart-count");
+
+            if (cartCount) {
+
+                cartCount.textContent = "0";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
